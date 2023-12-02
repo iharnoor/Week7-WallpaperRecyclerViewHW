@@ -9,10 +9,13 @@ import java.lang.Exception
 import javax.inject.Inject
 
 class WallpaperRepostiryImpl @Inject constructor(val picSumApi: PicSumApi) : WallpaperRepository {
+
+    // todo to write tests for getImages function
     override fun getImages(): Flow<Resource<List<WallpaperLink>>> = flow {
 
         try {
-            val response = picSumApi.getWallpaperImages()
+            val response = picSumApi.getWallpaperImages() // unit test are run with internet
+            // response = mockData
 
             response?.let {
                 val wallpaperLinks: List<WallpaperLink> = response.map {

@@ -13,6 +13,7 @@ import com.example.wallpaperapp.presentation.adapter.ImagesRecyclerViewAdapter
 import com.example.wallpaperapp.databinding.ActivityMainBinding
 import com.example.wallpaperapp.domain.entity.WallpaperLink
 import com.example.wallpaperapp.presentation.WallPaperUiState
+import com.example.wallpaperapp.presentation.adapter.ItemOnClickListener
 import com.example.wallpaperapp.presentation.viewmodel.WallpaperViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -85,8 +86,12 @@ class MainActivity : AppCompatActivity() {
     fun populateDataInRecyclerView(list: List<WallpaperLink>) {
         // 1. Update WallpaperAdapter with the list
         // 2. update recyclerview with that adapter
-        val wallpaperAdapter = ImagesRecyclerViewAdapter(list)
+        val wallpaperAdapter = ImagesRecyclerViewAdapter(list, this::onClickImage)
         binding.imagesRecyclerView.adapter = wallpaperAdapter
+    }
+
+    fun onClickImage(wallpaperLink: String) {
+
     }
 
 }
