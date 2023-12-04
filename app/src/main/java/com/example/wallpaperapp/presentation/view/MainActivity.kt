@@ -2,6 +2,7 @@ package com.example.wallpaperapp.presentation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -64,6 +65,7 @@ class MainActivity : AppCompatActivity() {
                             "Wallpapers are currently Empty",
                             Toast.LENGTH_SHORT
                         ).show()
+                        Log.d("MAINACTIVITY", "Wallpapers are currently empty")
                     }
 
                     is WallPaperUiState.Success -> {
